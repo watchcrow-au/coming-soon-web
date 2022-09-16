@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../dist/output.css" rel="stylesheet">
-    <link href="../dist/style.css" rel="stylesheet">
+    <link href="dist/output.css" rel="stylesheet">
+    <link href="dist/style.css" rel="stylesheet">
     <title>Watchcrow - A transaction platform for watch trading without risk.</title>
 </head>
 
@@ -191,14 +191,27 @@
             <div class="bg-gradient-to-r from-[#035A38]/80 to-[#007332]/80 px-4 py-16 md:p-40 text-center mb-[100px]">
                 <h2 class="text-3xl md:text-6xl font-medium uppercase mb-4">Sign Up</h2>
                 <p class="text-base md:text-3xl mb-10">To join the new movement in luxury watch trading</p>
-                <div class="bg-white w-full lg:w-[800px] flex flex-row gap-2 p-3 md:p-1.5 mx-auto">
-                    <form action="https://hbvhawzct9.execute-api.ap-southeast-2.amazonaws.com/dev/watchcrow/interest">
+
+                <!-- expression of interest -->
+                <form action="https://hbvhawzct9.execute-api.ap-southeast-2.amazonaws.com/dev/watchcrow/interest"
+                    class="interestForm" method="post" data-toggle="validator" data-focus="false" role="form">
+                    <div id="interestInput"
+                        class="bg-white w-full lg:w-[800px] flex flex-row gap-2 p-3 md:p-1.5 mx-auto">
                         <input placeholder="Your Email" type="email" name="email"
                             class="flex-grow px-2 md:px-4 text-black text-lg focus:outline-none">
-                        <button type="submit" class="font-semibold text-lg px-24 py-5 hidden md:inline-block"
-                            style="background: linear-gradient(86.36deg, #035A38 0%, #007332 100%);">Sign Up</button>
-                    </form>
-                </div>
+                        <button id="submitBtn" type="submit"
+                            class="font-semibold text-lg px-24 py-5 hidden md:inline-block"
+                            style="background: linear-gradient(86.36deg, #035A38 0%, #007332 100%);">Sign
+                            Up</button>
+                    </div>
+                    <div class="submit-loading" style="font-size:x-large" hidden>Registering...</div>
+                    <div class="submit-success" style="font-size:x-large" hidden>Thank you for expressing your interest.
+                        <br /><br /> We will be in touch shortly!
+                    </div>
+
+                    <input type="submit" class="form-control submit-error"
+                        value="Error signing up! Please try again later." disabled hidden>
+                </form>
                 <button class="font-semibold text-lg p-4 block md:hidden bg-[#1f1f1f] w-[200px] mt-7 mx-auto">Sign
                     Up</button>
             </div>
@@ -254,6 +267,8 @@
         </div>
     </section>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="js/interestForm.js"></script>
 
 </body>
