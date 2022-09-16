@@ -3,7 +3,6 @@ jQuery(document).ready(function ($) {
 
   // Contact
   $("form.interestForm").submit(function (e) {
-    alert(1);
     e.preventDefault();
 
     var action = $(this).attr("action");
